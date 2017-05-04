@@ -10,6 +10,12 @@ namespace homer.Controllers
     [Route("api/[controller]")]
     public class MeasurementsController : Controller
     {
+        private IRepository<Measurment> _measurmentRepo;
+
+        MeasurementsController(IRepository<Measurment> measurmentRepo)
+        {
+            _measurmentRepo = measurmentRepo;
+        }
         private List<Measurment> measurments {get; set;} = new Measurment[] { new Measurment("Measurement1") { Id = 1 }, new Measurment("Measurement2") { Id = 2 } }.ToList();
         // GET api/Measurements
         [HttpGet]
