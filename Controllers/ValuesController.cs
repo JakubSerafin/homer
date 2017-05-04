@@ -10,31 +10,32 @@ namespace homer.Controllers
     [Route("api/[controller]")]
     public class MeasurementsController : Controller
     {
-        private List<Measurment> measurments {get; set;} = new Measurment[] {new Measurment("Measurement1"), new Measurment("Measurement2") }.ToList();
+        private List<Measurment> measurments {get; set;} = new Measurment[] { new Measurment("Measurement1") { Id = 1 }, new Measurment("Measurement2") { Id = 2 } }.ToList();
         // GET api/Measurements
         [HttpGet]
-        public IEnumerable<string> Get()
+        public IEnumerable<Measurment> Get()
         {
-            return new string[] { "Measurement1", "Measurement2" };
+            return measurments;
         }
 
         // GET api/Measurements/5
         [HttpGet("{id}")]
-        public string Get(int id)
+        public Measurment Get(int id)
         {
-            return "Measurement";
+            return measurments.FirstOrDefault(_=>_.Id == id);
         }
 
         // POST api/Measurements
         [HttpPost]
-        public void Post([FromBody]string Measurement)
+        public void Post([FromBody]Measurment Measurement)
         {
         }
 
         // PUT api/Measurements/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody]string Measurement)
+        public void Put(int id, [FromBody]Measurment Measurement)
         {
+            measurments.Add(Measurement);
         }
 
         // DELETE api/Measurements/5
