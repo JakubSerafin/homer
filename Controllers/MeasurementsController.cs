@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using homer.models;
 using Microsoft.AspNetCore.Mvc;
+using homer.Repositories;
 
 namespace homer.Controllers
 {
@@ -16,19 +17,19 @@ namespace homer.Controllers
         {
             _measurmentRepo = measurmentRepo;
         }
-        private List<Measurment> measurments {get; set;} = new Measurment[] { new Measurment("Measurement1") { Id = 1 }, new Measurment("Measurement2") { Id = 2 } }.ToList();
+        //private List<Measurment> measurments {get; set;} = new Measurment[] { new Measurment("Measurement1") { Id = 1 }, new Measurment("Measurement2") { Id = 2 } }.ToList();
         // GET api/Measurements
         [HttpGet]
         public IEnumerable<Measurment> Get()
         {
-            return measurments;
+            return _measurmentRepo.Get();
         }
 
         // GET api/Measurements/5
         [HttpGet("{id}")]
         public Measurment Get(int id)
         {
-            return measurments.FirstOrDefault(_=>_.Id == id);
+            return _measurmentRepo.GetByID(id);
         }
 
         // POST api/Measurements
@@ -41,7 +42,7 @@ namespace homer.Controllers
         [HttpPut("{id}")]
         public void Put(int id, [FromBody]Measurment Measurement)
         {
-            measurments.Add(Measurement);
+            _measurmentRepo.Insert(Measurement);
         }
 
         // DELETE api/Measurements/5
