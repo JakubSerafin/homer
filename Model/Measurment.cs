@@ -1,7 +1,7 @@
 
 namespace homer.models
 {
-    public class Measurment
+    public class Measurment: IIdentyfiable
     {
         public string Name {get; set;}
         public int Id { get; set; }
