@@ -1,0 +1,13 @@
+/bin
+/bin/*
+/obj
+/obj/*
+/.vs
+/.vs
+/homer.sln
+/homer.csproj.user
+/Properties/launchSettings.json
+/Properties/PublishProfiles/homerApp - Web Deploy.pubxml.user
+/Properties/PublishProfiles/homerApp - Web Deploy.pubxml
+/packages
+/packages

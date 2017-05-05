@@ -1,11 +1,9 @@
-/bin
-/bin/*
-/obj
-/obj/*
-/.vs
-/.vs
-/homer.sln
-/homer.csproj.user
-/Properties/launchSettings.json
-/Properties/PublishProfiles/homerApp - Web Deploy.pubxml.user
-/Properties/PublishProfiles/homerApp - Web Deploy.pubxml
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/homerApi/.vscode
+/homerApi/appsettings.Development.json
+/homerApi/appsettings.json
+/homerApi.tests/bin/Debug/netcoreapp1.1
+/homerApi.tests/obj

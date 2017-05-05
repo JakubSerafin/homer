@@ -21,10 +21,10 @@ namespace homer.Controllers
         }
 
         [HttpGet("{from}/{to}/{typeID}")]
-        public Interpolation Interepolation(DateTime from, DateTime to, int typeID)
+        public List<Interpolation> Interepolation(DateTime from, DateTime to, int typeID)
         {
             var records = _Measurments.Get().Where(_ => _.MeasurmentType == typeID && _.Date >= from && _.Date <= to);
-            return _interpolationService.GetInterpolation(from, to, records);
+            return _interpolationService.GetInterpolationForInterval(from, to, TimeSpan.FromDays(1), records).ToList();
         }
     }
 
