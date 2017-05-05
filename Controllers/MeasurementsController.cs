@@ -36,12 +36,14 @@ namespace homer.Controllers
         [HttpPost]
         public void Post([FromBody]Measurment Measurement)
         {
+            _measurmentRepo.Update(Measurement);
         }
 
         // PUT api/Measurements/5
         [HttpPut("{id}")]
         public void Put(int id, [FromBody]Measurment Measurement)
         {
+            Measurement.Id = id;
             _measurmentRepo.Insert(Measurement);
         }
 

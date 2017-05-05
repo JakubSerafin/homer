@@ -1,13 +1,17 @@
 
+using System;
+
 namespace homer.models
 {
-    public class Measurment: IIdentyfiable
+    public class Measurment : IIdentyfiable
     {
-        public string Name {get; set;}
+        public float Value { get; set; }
+        public IMeasurmentType Type { get; set; }
         public int Id { get; set; }
-        public Measurment(string name)
+        public Measurment()
         {
-            Name = name;
         }
+
+        public DateTime Date {get; set;}
     } 
 }

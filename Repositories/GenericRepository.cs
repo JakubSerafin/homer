@@ -8,6 +8,16 @@ namespace homer.Repositories
 {
     public class GenericRepository<T> : IRepository<T> where T: IIdentyfiable
     {
+        public GenericRepository()
+        {
+
+        }
+
+        public GenericRepository(IEnumerable<T> initCollection)
+        {
+            _collection.InsertRange(0,initCollection);
+        }
+
         List<T> _collection = new List<T>();
         public void Delete(T entity)
         {
@@ -36,7 +46,16 @@ namespace homer.Repositories
 
         public void Update(T entity)
         {
-            
+            var index = _collection.FindIndex(_ => _.Id == entity.Id);
+            if(index>=0)
+            {
+                _collection.RemoveAt(index);
+                _collection.Add(entity);
+            }
+            else
+            {
+                Insert(entity);
+            }
         }
     }
 }
