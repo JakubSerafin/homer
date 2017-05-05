@@ -32,6 +32,8 @@ namespace homer
         {
             // Add framework services.
             services.AddSingleton<IRepository<Measurment>>(new GenericRepository<Measurment>(TestInitialData.Measurments));
+            services.AddSingleton<IRepository<IMeasurmentType>>(new GenericRepository<IMeasurmentType>(TestInitialData.MeasurmentTypes));
+
             services.AddMvc();
 
         }

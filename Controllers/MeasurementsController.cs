@@ -12,10 +12,12 @@ namespace homer.Controllers
     public class MeasurementsController : Controller
     {
         private IRepository<Measurment> _measurmentRepo;
+        private IRepository<IMeasurmentType>  _measurmentTypeRepo;
 
-        public MeasurementsController(IRepository<Measurment> measurmentRepo)
+        public MeasurementsController(IRepository<Measurment> measurmentRepo, IRepository<IMeasurmentType> measurmentTypeRepo)
         {
             _measurmentRepo = measurmentRepo;
+            _measurmentTypeRepo = measurmentTypeRepo;
         }
         //private List<Measurment> measurments {get; set;} = new Measurment[] { new Measurment("Measurement1") { Id = 1 }, new Measurment("Measurement2") { Id = 2 } }.ToList();
         // GET api/Measurements
@@ -30,6 +32,18 @@ namespace homer.Controllers
         public Measurment Get(int id)
         {
             return _measurmentRepo.GetByID(id);
+        }
+
+        [HttpGet("{id}/Type")]
+        public IMeasurmentType GetType(int id)
+        {
+            var Measurment = _measurmentRepo.GetByID(id);
+            if(Measurment!=null)
+            {
+                return _measurmentTypeRepo.GetByID(Measurment.MeasurmentTypeId);
+            }
+            return null;
+
         }
 
         // POST api/Measurements
