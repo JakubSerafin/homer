@@ -40,7 +40,7 @@ namespace homer.Controllers
             var Measurment = _measurmentRepo.GetByID(id);
             if(Measurment!=null)
             {
-                return _measurmentTypeRepo.GetByID(Measurment.MeasurmentTypeId);
+                return _measurmentTypeRepo.GetByID(Measurment.MeasurmentType);
             }
             return null;
 
