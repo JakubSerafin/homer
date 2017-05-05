@@ -1,11 +1,8 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using homer.Controllers;
 using homer.models;
-using Xunit;
+using 
 
-namespace homer.tests.x
+namespace homerApi.Tests
 {
     public class InterpolationServiceTests
     {
