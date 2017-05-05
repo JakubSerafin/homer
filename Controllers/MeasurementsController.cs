@@ -13,7 +13,7 @@ namespace homer.Controllers
     {
         private IRepository<Measurment> _measurmentRepo;
 
-        MeasurementsController(IRepository<Measurment> measurmentRepo)
+        public MeasurementsController(IRepository<Measurment> measurmentRepo)
         {
             _measurmentRepo = measurmentRepo;
         }

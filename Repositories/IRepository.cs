@@ -2,7 +2,7 @@
 
 namespace homer.Repositories
 {
-    internal interface IRepository<T>
+    public interface IRepository<T>
     {
         IQueryable<T> Get();
         T GetByID(int id);
