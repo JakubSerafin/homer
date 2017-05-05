@@ -9,6 +9,27 @@ using homer.Repositories;
 namespace homer.Controllers
 {
     [Route("api/[controller]")]
+    public class InterpolationController: Controller
+    {
+        private IRepository<Measurment> _Measurments;
+        private IInterpolationService _interpolationService;
+
+        public InterpolationController(IRepository<Measurment> typeRepo, IInterpolationService interpolationService)
+        {
+            _Measurments = typeRepo;
+            _interpolationService = interpolationService;
+        }
+
+        [HttpGet("{from}/{to}/{typeID}")]
+        public Interpolation Interepolation(DateTime from, DateTime to, int typeID)
+        {
+            var records = _Measurments.Get().Where(_ => _.MeasurmentType == typeID && _.Date >= from && _.Date <= to);
+            return _interpolationService.GetInterpolation(from, to, records);
+        }
+    }
+
+
+    [Route("api/[controller]")]
     public class MeasurementsController : Controller
     {
         private IRepository<Measurment> _measurmentRepo;
