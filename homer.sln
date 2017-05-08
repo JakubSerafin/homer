@@ -5,7 +5,7 @@ VisualStudioVersion = 15.0.26228.9
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "homerApi", "homerApi\homerApi.csproj", "{4F899361-5961-47A3-9DDE-225815C2DAA4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "homerApi.Tests", "homerApi.Tests\homerApi.Tests.csproj", "{A4CE151C-BE3D-47E7-8124-03F9B5553CD0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "homerApi.tests", "homerApi.tests\homerApi.tests.csproj", "{4BC89268-575D-4DB8-BB06-59158257D3C2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +17,10 @@ Global
 		{4F899361-5961-47A3-9DDE-225815C2DAA4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4F899361-5961-47A3-9DDE-225815C2DAA4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4F899361-5961-47A3-9DDE-225815C2DAA4}.Release|Any CPU.Build.0 = Release|Any CPU
-		{A4CE151C-BE3D-47E7-8124-03F9B5553CD0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A4CE151C-BE3D-47E7-8124-03F9B5553CD0}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A4CE151C-BE3D-47E7-8124-03F9B5553CD0}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A4CE151C-BE3D-47E7-8124-03F9B5553CD0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4BC89268-575D-4DB8-BB06-59158257D3C2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4BC89268-575D-4DB8-BB06-59158257D3C2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4BC89268-575D-4DB8-BB06-59158257D3C2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4BC89268-575D-4DB8-BB06-59158257D3C2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
