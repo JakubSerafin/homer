@@ -36,6 +36,7 @@ namespace homer
             services.AddSingleton<IRepository<IMeasurmentType>>(new GenericRepository<IMeasurmentType>(TestInitialData.MeasurmentTypes));
             services.AddTransient<IInterpolationService, InterpolationService>();
             services.AddMvc();
+            
 
         }
 
@@ -46,6 +47,7 @@ namespace homer
             loggerFactory.AddDebug();
 
             app.UseMvc();
+            app.UseStaticFiles();
         }
     }
 }
