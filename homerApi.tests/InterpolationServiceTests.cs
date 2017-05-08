@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using homer.Controllers;
 using homer.models;
+using homerApi.Model;
+using homerApi.Services;
 using Xunit;
 
 namespace homerApi.Tests

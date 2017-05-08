@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace homer.Controllers
+namespace homerApi.Model
 {
     public class Interpolation
     {

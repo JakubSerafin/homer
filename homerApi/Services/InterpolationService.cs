@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using homer.Controllers;
 using homer.models;
+using homerApi.Model;
 
-namespace homer.Controllers
+namespace homerApi.Services
 {
 //    public interface IInterpolator
 //    {

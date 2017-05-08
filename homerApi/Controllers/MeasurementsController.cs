@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using homer.models;
 using Microsoft.AspNetCore.Mvc;
@@ -8,27 +6,6 @@ using homer.Repositories;
 
 namespace homer.Controllers
 {
-    [Route("api/[controller]")]
-    public class InterpolationController: Controller
-    {
-        private IRepository<Measurment> _Measurments;
-        private IInterpolationService _interpolationService;
-
-        public InterpolationController(IRepository<Measurment> typeRepo, IInterpolationService interpolationService)
-        {
-            _Measurments = typeRepo;
-            _interpolationService = interpolationService;
-        }
-
-        [HttpGet("{from}/{to}/{typeID}")]
-        public List<Interpolation> Interepolation(DateTime from, DateTime to, int typeID)
-        {
-            var records = _Measurments.Get().Where(_ => _.MeasurmentType == typeID && _.Date >= from && _.Date <= to);
-            return _interpolationService.GetInterpolationForInterval(from, to, TimeSpan.FromDays(1), records).ToList();
-        }
-    }
-
-
     [Route("api/[controller]")]
     public class MeasurementsController : Controller
     {

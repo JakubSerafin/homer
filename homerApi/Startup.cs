@@ -10,6 +10,7 @@ using Microsoft.Extensions.Logging;
 using homer.Controllers;
 using homer.models;
 using homer.Repositories;
+using homerApi.Services;
 
 namespace homer
 {
@@ -33,7 +34,7 @@ namespace homer
             // Add framework services.
             services.AddSingleton<IRepository<Measurment>>(new GenericRepository<Measurment>(TestInitialData.Measurments));
             services.AddSingleton<IRepository<IMeasurmentType>>(new GenericRepository<IMeasurmentType>(TestInitialData.MeasurmentTypes));
-
+            services.AddTransient<IInterpolationService, InterpolationService>();
             services.AddMvc();
 
         }
