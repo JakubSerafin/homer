@@ -5,11 +5,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Content Include="wwwroot\index.html" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Folder Include="Entities\" />
+    <Folder Include="wwwroot\" />
   </ItemGroup>
 
   <ItemGroup>

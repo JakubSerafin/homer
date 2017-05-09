@@ -7,3 +7,7 @@
 /homerApi/appsettings.json
 /homerApi.tests/bin/Debug/netcoreapp1.1
 /homerApi.tests/obj
+/HomerPortal/dist
+/.vs/VSWorkspaceState.json
+/.vs/slnx.sqlite
+/.vs/ProjectSettings.json
