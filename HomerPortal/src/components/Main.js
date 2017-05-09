@@ -4,6 +4,7 @@ require('styles/App.css');
 import React from 'react';
 
 let yeomanImage = require('../images/yeoman.png');
+let counters = ['raz', 'dwa', 'trzy']
 
 class AppComponent extends React.Component {
   render() {
@@ -11,6 +12,8 @@ class AppComponent extends React.Component {
       <div className="index">
         <img src={yeomanImage} alt="Yeoman Generator" />
         <div className="notice">Please edit <code>src/components/Main.js</code> to get started!</div>
+        <div>I did it already :)</div>
+        {counters.map((obj,i)=>{return <div>{obj}</div>})} 
       </div>
     );
   }
