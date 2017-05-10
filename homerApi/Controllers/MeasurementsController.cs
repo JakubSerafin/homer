@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using homer.models;
 using Microsoft.AspNetCore.Mvc;
@@ -42,6 +43,12 @@ namespace homer.Controllers
             }
             return null;
 
+        }
+
+        [HttpGet("Types")]
+        public List<IMeasurmentType> Types()
+        {
+            return _measurmentTypeRepo.Get().ToList();
         }
 
         // POST api/Measurements
