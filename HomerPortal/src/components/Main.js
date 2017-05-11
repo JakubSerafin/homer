@@ -3,6 +3,8 @@ require('styles/App.css');
 
 import React from 'react';
 import Record from './Record'
+import config from 'config'
+
 let yeomanImage = require('../images/yeoman.png');
 
 class AppComponent extends React.Component {
@@ -14,11 +16,11 @@ class AppComponent extends React.Component {
   
   componentDidMount()
   {
-    fetch('http://localhost:50260/api/Measurements')
-    .then(result=>result.json())
-    .then(items=>this.setState({items: items}))
+    fetch(config.apiUrl + 'api/Measurements')
+      .then(result=>result.json())
+      .then(items=>this.setState({items: items}))
 
-        fetch('http://localhost:50260/api/Measurements/Types')
+    fetch(config.apiUrl + '/api/Measurements/Types')
     .then(result=>result.json())
     .then(items=>this.setState({types: items}))
 
