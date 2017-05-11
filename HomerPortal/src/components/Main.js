@@ -38,6 +38,19 @@ class AppComponent extends React.Component {
         <ul>
               {this.state.items.map(item=><Record id={item.id} date={item.date} value={item.value} type={this.state.types.find(_=>_.id==item.measurmentType).name}/>)}
         </ul>
+        <table>
+          <tbody>
+            <tr>Add New</tr>
+               {this.state.items.map(item=>
+               <tr>
+                  <td id={item.id}> {new Date(item.date).toLocaleDateString()}</td>
+                  <td> {item.value}</td>
+                  <td> {this.state.types.find(_=>_.id==item.measurmentType).name}</td>
+               </tr>
+               )}
+       
+            </tbody>
+            </table>
 
       </div>
     );
