@@ -2,7 +2,9 @@ require('normalize.css/normalize.css');
 require('styles/App.css');
 
 import React from 'react';
-import Record from './Record'
+import Record from './MeasurmentTable/Record'
+import EditRecord from './MeasurmentTable/EditRecord'
+
 import config from 'config'
 
 let yeomanImage = require('../images/yeoman.png');
@@ -11,7 +13,7 @@ class AppComponent extends React.Component {
   constructor()
   {
     super();
-    this.state = { items: [], types: [{id:1, name:'gaz'}] };
+    this.state = { items: [], types: [{id:1, name:'gaz'} ], newRow: false };
   }
   
   componentDidMount()
@@ -27,7 +29,28 @@ class AppComponent extends React.Component {
 
   }
 
+  AddNewRow()
+  {
+      this.setState((s)=>s={newRow:true})
+  }
+
+  EndEdit()
+  {
+    this.setState((s)=>s={newRow:false})
+  }
+
   render() {
+    var newRowBlock = null;
+    if(this.state.newRow)
+    {
+       newRowBlock = <EditRecord id={666} endEdit={this.EndEdit.bind(this)} />
+    }
+    else
+    {
+       newRowBlock = (<tr onClick={this.AddNewRow.bind(this)} >Add New</tr>)
+    }
+
+
     return (
       <div className='index'>
         <img src={yeomanImage} alt='Yeoman Generator' />
@@ -35,19 +58,12 @@ class AppComponent extends React.Component {
         <ul>
               {this.state.types.map(type=>(<li key={type.id}>{type.name}</li>))}
         </ul>
-        <ul>
-              {this.state.items.map(item=><Record id={item.id} date={item.date} value={item.value} type={this.state.types.find(_=>_.id==item.measurmentType).name}/>)}
-        </ul>
+
         <table>
           <tbody>
-            <tr>Add New</tr>
-               {this.state.items.map(item=>
-               <tr>
-                  <td id={item.id}> {new Date(item.date).toLocaleDateString()}</td>
-                  <td> {item.value}</td>
-                  <td> {this.state.types.find(_=>_.id==item.measurmentType).name}</td>
-               </tr>
-               )}
+                {newRowBlock}
+                {this.state.items.map(item=><Record id={item.id} date={item.date} value={item.value} type={this.state.types.find(_=>_.id==item.measurmentType).name}/>)}
+        
        
             </tbody>
             </table>

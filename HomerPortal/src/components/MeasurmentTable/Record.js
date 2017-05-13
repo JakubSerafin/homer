@@ -3,8 +3,6 @@ require('styles/App.css');
 
 import React, { PropTypes }  from 'react';
 
-let yeomanImage = require('../images/yeoman.png');
-
 class RecordComponent extends React.Component {
     static PropTypes = {
         date: PropTypes.string.isRequired,
@@ -21,7 +19,11 @@ class RecordComponent extends React.Component {
     render()
     {
         return (
-        <li key={this.props.id}>date: {this.props.date}, type:{this.props.type}, value: {this.props.value}></li>
+            <tr id={this.props.id}>
+                <td>{this.props.type}</td>
+                <td>{new Date(this.props.date).toDateString()}</td>
+                <td>{this.props.value}</td>
+            </tr>
        )
     }
 }
