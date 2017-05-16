@@ -22,7 +22,7 @@ class AppComponent extends React.Component {
       .then(result=>result.json())
       .then(items=>this.setState({items: items}))
 
-    fetch(config.apiUrl + '/api/Measurements/Types')
+    fetch(config.apiUrl + 'api/Measurements/Types')
     .then(result=>result.json())
     .then(items=>this.setState({types: items}))
 
@@ -31,12 +31,12 @@ class AppComponent extends React.Component {
 
   AddNewRow()
   {
-      this.setState((s)=>s={newRow:true})
+      this.setState({newRow:true})
   }
 
-  EndEdit()
+  EndEdit(state)
   {
-    this.setState((s)=>s={newRow:false})
+    this.setState({newRow:false, items: this.state.items.concat(state)});
   }
 
   render() {
@@ -47,7 +47,7 @@ class AppComponent extends React.Component {
     }
     else
     {
-       newRowBlock = (<tr onClick={this.AddNewRow.bind(this)} >Add New</tr>)
+       newRowBlock = (<tr onClick={this.AddNewRow.bind(this)} ><td>Add New</td></tr>)
     }
 
 

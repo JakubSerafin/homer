@@ -2,6 +2,7 @@ require('normalize.css/normalize.css');
 require('styles/App.css');
 
 import React, { PropTypes }  from 'react';
+import hInput from '../Primitives/hInput'
 
 class EditRecordComponent extends React.Component {
      static PropTypes = {
@@ -14,18 +15,25 @@ class EditRecordComponent extends React.Component {
     
     constructor()
     {
+        // {item.id} date={item.date} value={item.value}
         super();
-        this.state = {date: Date.now, type:'gówno', value:0}
+        this.state = {id:9,  date: Date.now(), measurmentType:1, value:0}
         
     }
+    
+    endEdit()
+    {
+        this.props.endEdit(this.state);
+    }
+
     render()
     {
         return (
             <tr id={this.props.id}>
-                <td><input value={this.state.type}/></td>
-                <td><input value={new Date(this.props.date).toDateString()}></input></td>
-                <td><input value={this.state.value}></input></td>
-                <td><button onClick={this.props.endEdit}>DONE</button></td>
+                <td><input value={this.state.measurmentType} onChange={(val)=>this.setState({type:val.target.value})}/></td>
+                <td><input value={this.state.date} onChange={(val)=>this.setState({date:val.target.value})}/></td>
+                <td><input value={this.state.value} onChange={(val)=>this.setState({value:val.target.value})}/></td>
+                <td><button onClick={this.endEdit.bind(this)}>DONE</button></td>
             </tr>
        )
     }
