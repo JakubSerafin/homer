@@ -43,7 +43,7 @@ class AppComponent extends React.Component {
     var newRowBlock = null;
     if(this.state.newRow)
     {
-       newRowBlock = <EditRecord id={666} endEdit={this.EndEdit.bind(this)} />
+       newRowBlock = <EditRecord id={666} endEdit={this.EndEdit.bind(this)} measurmentTypes={this.state.types} />
     }
     else
     {
