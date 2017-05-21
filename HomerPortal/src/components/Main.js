@@ -3,7 +3,6 @@ require('styles/App.css');
 
 import React from 'react';
 import Record from './MeasurmentTable/Record'
-import EditRecord from './MeasurmentTable/EditRecord'
 
 import config from 'config'
 
@@ -48,6 +47,14 @@ class AppComponent extends React.Component {
     this.setState({items,});
   }
 
+  newRowClick(record)
+  {
+      record.edit = false;
+      let items = this.state.items;
+      items.push(record);
+      this.setState({items,newRow:false});
+  }
+
 
   render() {
     var newRowBlock = null;
@@ -55,7 +62,8 @@ class AppComponent extends React.Component {
 
     if(this.state.newRow)
     {
-       newRowBlock = <EditRecord id={666} endEdit={this.EndEdit.bind(this)} measurmentTypes={this.state.types} />
+      let newItem = {edit:this.state.newRow, date: new Date(Date.now())}
+       newRowBlock = <Record record={newItem} measurmentTypes={mesTyp} onClick={this.newRowClick.bind(this)} />
     }
     else
     {
