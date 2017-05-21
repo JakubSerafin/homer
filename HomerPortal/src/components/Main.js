@@ -65,7 +65,7 @@ class AppComponent extends React.Component {
     if(this.state.newRow)
     {
       let newItem = {edit:this.state.newRow, date: new Date(Date.now())}
-       newRowBlock = <Record record={newItem} measurmentTypes={mesTyp} onClick={this.newRowClick.bind(this)} />
+       newRowBlock = <Record className='record newRecord' record={newItem} measurmentTypes={mesTyp} onClick={this.newRowClick.bind(this)} />
     }
     else
     {
@@ -81,7 +81,7 @@ class AppComponent extends React.Component {
               {this.state.types.map(type=>(<li key={type.id}>{type.name}</li>))}
         </ul>
 
-        <table>
+        <table className={'recordTable'}>
           <tbody>
                 {newRowBlock}
               {this.state.items.map(item=><Record record={item} measurmentTypes={mesTyp} onClick={this.measurmentRowClicked.bind(this)}/>)}

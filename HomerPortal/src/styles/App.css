@@ -19,3 +19,19 @@ body {
   border-width: 1px 0;
   background: #666;
 }
+
+.recordTable{
+  border: 1px solid #666;
+  width:100%;
+}
+
+.record{
+
+}
+
+.newRecord{
+  align-content: center;
+  text-align: center;
+}
+
+
