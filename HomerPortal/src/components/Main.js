@@ -39,8 +39,20 @@ class AppComponent extends React.Component {
     this.setState({newRow:false, items: this.state.items.concat(state)});
   }
 
+  measurmentRowClicked(record)
+  {
+    record.edit = !record.edit;
+    let items = this.state.items;
+    let itemIndex = items.findIndex(i=>i.id == record.id);
+    items[itemIndex] = record;
+    this.setState({items,});
+  }
+
+
   render() {
     var newRowBlock = null;
+    let mesTyp = this.state.types.map(type=>{return {label:type.name, value:type.id}});
+
     if(this.state.newRow)
     {
        newRowBlock = <EditRecord id={666} endEdit={this.EndEdit.bind(this)} measurmentTypes={this.state.types} />
@@ -62,9 +74,7 @@ class AppComponent extends React.Component {
         <table>
           <tbody>
                 {newRowBlock}
-                {this.state.items.map(item=><Record id={item.id} date={item.date} value={item.value} type={this.state.types.find(_=>_.id==item.measurmentType).name}/>)}
-        
-       
+              {this.state.items.map(item=><Record record={item} measurmentTypes={mesTyp} onClick={this.measurmentRowClicked.bind(this)}/>)}
             </tbody>
             </table>
 
@@ -72,6 +82,7 @@ class AppComponent extends React.Component {
     );
   }
 }
+
 
 AppComponent.defaultProps = {
 };
