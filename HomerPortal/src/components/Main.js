@@ -3,9 +3,7 @@ require('styles/App.css');
 
 import React from 'react';
 import Record from './MeasurmentTable/Record'
-
 import config from 'config'
-
 let yeomanImage = require('../images/yeoman.png');
 
 class AppComponent extends React.Component {
@@ -19,7 +17,11 @@ class AppComponent extends React.Component {
   {
     fetch(config.apiUrl + 'api/Measurements')
       .then(result=>result.json())
-      .then(items=>this.setState({items: items}))
+      .then(items=>
+      {
+        items.forEach(item=>item.date = new Date(item.date));
+        this.setState({items: items})
+      })
 
     fetch(config.apiUrl + 'api/Measurements/Types')
     .then(result=>result.json())
