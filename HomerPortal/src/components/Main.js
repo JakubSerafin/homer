@@ -4,6 +4,7 @@ require('styles/App.css');
 import React from 'react';
 import Record from './MeasurmentTable/Record'
 import config from 'config'
+import {Button} from 'reactstrap'
 let yeomanImage = require('../images/yeoman.png');
 
 class AppComponent extends React.Component {
@@ -65,23 +66,30 @@ class AppComponent extends React.Component {
     if(this.state.newRow)
     {
       let newItem = {edit:this.state.newRow, date: new Date(Date.now())}
-       newRowBlock = <Record className='record newRecord' record={newItem} measurmentTypes={mesTyp} onClick={this.newRowClick.bind(this)} />
+       newRowBlock = <Record record={newItem} measurmentTypes={mesTyp} onClick={this.newRowClick.bind(this)} />
     }
     else
     {
-       newRowBlock = (<tr onClick={this.AddNewRow.bind(this)} ><td>Add New</td></tr>)
+       newRowBlock = (<tr  className='record newRecord' onClick={this.AddNewRow.bind(this)} ><td colSpan={4}><Button block color='primary'>Add New</Button></td></tr>)
     }
 
 
     return (
-      <div className='index'>
+      <div className='index container' >
         <img src={yeomanImage} alt='Yeoman Generator' />
         <div className='notice'>Please edit <code>src/components/Main.js</code> to get started!</div>
         <ul>
               {this.state.types.map(type=>(<li key={type.id}>{type.name}</li>))}
         </ul>
 
-        <table className={'recordTable'}>
+        <table className={'recordTable table table-bordere '}>
+            <colgroup>
+              <col width='15%'/>
+              <col width='35%'/>  
+              <col width='35%'/>  
+              <col width='15%'/>  
+                
+            </colgroup>
           <tbody>
                 {newRowBlock}
               {this.state.items.map(item=><Record record={item} measurmentTypes={mesTyp} onClick={this.measurmentRowClicked.bind(this)}/>)}

@@ -3,6 +3,7 @@ require('styles/App.css');
 
 import React, { PropTypes }  from 'react';
 import Dropdown from 'react-dropdown'
+import {Button} from 'reactstrap'
 
 class RecordComponent extends React.Component {
     
@@ -40,21 +41,22 @@ class RecordComponent extends React.Component {
         {
             let selectedMeasurmentType = this.mapMeasurmentType(this.state.measurmentType,this.props.measurmentTypes);
             return(
-            <tr  className={"record editRecord"} id={this.props.id}>
+            <tr  className={'record editRecord'} id={this.props.id}>
                 <td><Dropdown options={this.props.measurmentTypes} onChange={this._onSelect.bind(this)} value={selectedMeasurmentType} placeholder="Select an option" /></td>
                 <td><input value={this.state.date} onChange={(val)=>this.setState({date:val.target.value})}/></td>
                 <td><input value={this.state.value} onChange={(val)=>this.setState({value:val.target.value})}/></td>
-                <td><button onClick={this._onStateChange.bind(this)}>DONE</button></td>
+                <td><Button onClick={this._onStateChange.bind(this)}>DONE</Button></td>
             </tr>
             )
         }
         else
         {
             return (
-                <tr className={"record"} id={this.props.record.id} onClick={this._onStateChange.bind(this)}>
+                <tr className={'record'} id={this.props.record.id} onClick={this._onStateChange.bind(this)}>
                     <td>{this.props.record.measurmentType}</td>
                     <td>{new Date(this.props.record.date).toDateString()}</td>
                     <td>{this.props.record.value}</td>
+                    <td></td>
                 </tr>
             )
         }
